@@ -184,7 +184,7 @@ Mailpile.UI.Search.Draggable = function(element) {
 };
 
 
-Mailpile.UI.Search.Dropable = function(element, accept) {
+Mailpile.UI.Search.Droppable = function(element, accept) {
   $(element).droppable({
     accept: accept,
     hoverClass: 'result-hover',
