@@ -236,6 +236,13 @@
 </script>
 
 
+<script id="template-thread-tag" type="text/template">
+  <li class="thread-tag add-right">
+    <span class="<%= icon %> color-<%= label_color %>"></span> <%= name %>
+  </li>
+</script>
+
+
 <script id="template-modal-private-key-item" type="text/template">
   <li class="grouped">
     <h4><span class="icon-fingerprint"></span> <%= Mailpile.nice_fingerprint(fingerprint) %></h4>

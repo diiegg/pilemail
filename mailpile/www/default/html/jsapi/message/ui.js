@@ -58,10 +58,33 @@ Mailpile.UI.Message.Draggable = function(element) {
       // Add Draggable MID
       var mid = location.href.split("thread/=")[1].split("/")[0];
       Mailpile.bulk_cache_add('messages_cache', mid);
-  
+
       // Update Bulk UI
     	// Style & Select Checkbox
     },
     stop: function(event, ui) {}
+  });
+};
+
+
+Mailpile.UI.Message.Droppable = function(element, accept) {
+  $(element).droppable({
+    accept: accept,
+    activeClass: 'thread-details-hover',
+    hoverClass: 'thread-details-active',
+    tolerance: 'pointer',
+    drop: function(event, ui) {
+
+      // Form Data
+      var tid = ui.draggable.data('tid');
+      var mids = $('#thread-title').data('mids').split(',');
+
+      // Save Update
+      Mailpile.API.tag_post({ add: tid, mid: mids }, function(result) {
+        var tag_template = _.template($('#template-thread-tag').html());
+        var tag_html = tag_template(_.findWhere(Mailpile.instance.tags, { tid: tid }));
+        $('#thread-title').find('ul.thread-tags').append(tag_html);
+      });
+    }
   });
 };

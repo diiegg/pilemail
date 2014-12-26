@@ -15,34 +15,12 @@
     padding: 0;
   }
 
-  #thread-title h1 {
-    display: inline-block;
-    font-family: @mailpile-text-font-family-bold;
-    font-size: 21px;
-    line-height: 24px;
-    color: rgb(77, 77, 77); //@grayDark;
-  }
-
-  #thread-title ul li {
-    margin: 0 10px;
-  }
-
-  #thread-title ul a {
-    color: @gray;
-    font-family: Helvetica, Arial, sans-serif;
-    font-size: 12px;
-    font-weight: normal;
-  }
-
-  #thread-title ul a:hover {
-    color: @grayDark;
-  }
-
   #thread-title div.thread-draggable {
     width: 12px;
     height: 100%;
     display: table-cell;
-    background: url('/static/img/draggable-pattern.png'), rgba(255,255,255,1);
+    background-image: url('/static/img/draggable-pattern.png');
+    background-color: transparent;
     opacity: 0.3;
     filter:alpha(opacity=30);
   }
@@ -52,7 +30,46 @@
   }
   
   #thread-title div.thread-details {
-    display: table-cell;
+    border: 2px dotted @grayLight;
+    border-radius: (@base-border-radius * 2);
+    margin: 5px;
+    padding: 5px 8px;
+  }
+
+  #thread-title div.thread-details-hover {
+    border-color: @gray;
+  }
+
+  #thread-title div.thread-details-active {
+    border-color: @grayMid;
+    background: @grayMid;
+  }
+
+  #thread-title h1 {
+    display: inline-block;
+    font-family: @mailpile-text-font-family-bold;
+    font-size: 21px;
+    line-height: 24px;
+    color: @grayDark;
+  }
+
+  #thread-title ul li {
+    font-size: 12px;
+    line-height: 12px;
+  }
+
+  #thread-title ul a {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+  }
+
+  #thread-title ul a:hover {
+    color: @grayDark;
+  }
+
+  #thread-title ul.thread-tags {
+    border-radius: @base-border-radius;
   }
 
 

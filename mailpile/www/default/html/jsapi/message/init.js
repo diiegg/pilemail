@@ -7,6 +7,7 @@ Mailpile.Message.init = function() {
 
   /* Drag & Drop */
   Mailpile.UI.Message.Draggable('div.thread-draggable');
+  Mailpile.UI.Message.Droppable('div.thread-details', 'a.sidebar-tag');
   Mailpile.UI.Sidebar.Droppable('li.sidebar-tags-draggable', 'div.thread-draggable');
 
   /* Scroll To */
